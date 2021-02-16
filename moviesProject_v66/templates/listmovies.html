@@ -1,0 +1,33 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/movie_design.css' %}">
+</head>
+<body>
+<header><h1 align="centre">Latest Movies</h1></header><hr>
+{% if listmovies %}
+    <table border="1">
+    <thead>
+    <th>Release Date</th>
+    <th>Movie</th>
+    <th>Hero</th>
+    <th>Heroien</th>
+    <th>Rating</th>
+    </thead>
+    {% for list in listmovies %}
+    <tr>
+    <td>{{ list.rdate }}</td>
+    <td>{{ list.movie }}</td>
+    <td>{{ list.hero }}</td>
+    <td>{{ list.heroine }}</td>
+    <td>{{ list.rating }}</td>
+    </tr>
+    {% endfor %}
+
+    </table>
+    {% else %}
+    <p>NO Movies found in List</p>
+
+{% endif %}
+</body>
+</html>
